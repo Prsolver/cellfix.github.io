@@ -3,12 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdaCell Cellfix&Repair Center</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>AdaCell Cellfix & Repair Center</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #666464;
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            background-color: #000000c4;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .phone-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .phone-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 200px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgb(255, 255, 255);
+            text-align: center;
+        }
+
+        .phone-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+
+        h2, p {
+            color: white;
+        }
+
+        ul li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 300px;
+        }
+
+        ul li button {
+            margin-left: 5px;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>AdaCell Phone Catalog</h1>
+        
     </header>
     <main>
         <section class="phone-list">
@@ -210,106 +293,102 @@
                 <p>Storage: 128GB</p>
                 <p>Price: $270</p>
             </div>
-            
-            
-            
-            <!-- Add more phones here -->
         </section>
     </main>
     <footer>
-          <a href="https://wa.me/+12015197567" class="whatsapp-button" target="_blank">Message on WhatsApp</a>
-        <p>© 2024 AdaCell Cellfix & Repair Center</p>
-        <h3>Stock Status</h3>
-        <input type="password" id="password" placeholder="Enter password">
-        <ul>
-            <li>Samsung S22 - <span id="s22-stock">5</span> in stock
-                <button onclick="updateStock('s22-stock', 1)">+</button>
-                <button onclick="updateStock('s22-stock', -1)">-</button>
-            </li>
-            <li>Samsung Note10 - <span id="note10-stock">3</span> in stock
-                <button onclick="updateStock('note10-stock', 1)">+</button>
-                <button onclick="updateStock('note10-stock', -1)">-</button>
-            </li>
-            <li>Samsung S21 Ultra - <span id="s21-ultra-stock">4</span> in stock
-                <button onclick="updateStock('s21-ultra-stock', 1)">+</button>
-                <button onclick="updateStock('s21-ultra-stock', -1)">-</button>
-            </li>
-            <li>Samsung S20 Ultra - <span id="s20-ultra-stock">2</span> in stock
-                <button onclick="updateStock('s20-ultra-stock', 1)">+</button>
-                <button onclick="updateStock('s20-ultra-stock', -1)">-</button>
-            </li>
-            <li>Samsung Z Flip 4 - <span id="z-flip4-stock">6</span> in stock
-                <button onclick="updateStock('z-flip4-stock', 1)">+</button>
-                <button onclick="updateStock('z-flip4-stock', -1)">-</button>
-            </li>
-            <li>Samsung Note 9 - <span id="note9-stock">2</span> in stock
-                <button onclick="updateStock('note9-stock', 1)">+</button>
-                <button onclick="updateStock('note9-stock', -1)">-</button>
-            </li>
-            <li>Samsung Z Flip 3 - <span id="z-flip3-stock">4</span> in stock
-                <button onclick="updateStock('z-flip3-stock', 1)">+</button>
-                <button onclick="updateStock('z-flip3-stock', -1)">-</button>
-            </li>
-            <li>Samsung S21 Plus - <span id="s21-plus-stock">3</span> in stock
-                <button onclick="updateStock('s21-plus-stock', 1)">+</button>
-                <button onclick="updateStock('s21-plus-stock', -1)">-</button>
-            </li>
-            <li>Google Pixel 6 - <span id="pixel6-stock">5</span> in stock
-                <button onclick="updateStock('pixel6-stock', 1)">+</button>
-                <button onclick="updateStock('pixel6-stock', -1)">-</button>
-            </li>
-            <li>Apple iPhone 12 - <span id="iphone12-stock">4</span> in stock
-                <button onclick="updateStock('iphone12-stock', 1)">+</button>
-                <button onclick="updateStock('iphone12-stock', -1)">-</button>
-            </li>
-            <li>Apple iPhone 11 - <span id="iphone11-stock">3</span> in stock
-                <button onclick="updateStock('iphone11-stock', 1)">+</button>
-                <button onclick="updateStock('iphone11-stock', -1)">-</button>
-            </li>
-        </ul>
-    <button onclick="saveStock()">Save</button>
-    </footer>
-    
-    <script>
-        // Function to update stock
-        function updateStock(itemId, change) {
-            const passwordInput = document.getElementById('password').value;
-            const correctPassword = '2580'; // Set your password here
-            if (passwordInput === correctPassword) {
-                const stockElement = document.getElementById(itemId);
-                let currentStock = parseInt(stockElement.textContent);
-                currentStock += change;
-                if (currentStock >= 0) {
-                    stockElement.textContent = currentStock;
-                }
-            } else {
-                alert('Incorrect password!');
-            }
-        }
+        <a href="https://wa.me/+12015197567" class="whatsapp-button" target="_blank">Message on WhatsApp</a>
+      <h1>© 2024 AdaCell Cellfix & Repair Center</h1>
+      <h3>Stock Status</h3>
+      <input type="password" id="password" placeholder="Enter password">
+      <ul>
+          <li>Samsung S22 - <span id="s22-stock">5</span> in stock
+              <button onclick="updateStock('s22-stock', 1)">+</button>
+              <button onclick="updateStock('s22-stock', -1)">-</button>
+          </li>
+          <li>Samsung Note10 - <span id="note10-stock">3</span> in stock
+              <button onclick="updateStock('note10-stock', 1)">+</button>
+              <button onclick="updateStock('note10-stock', -1)">-</button>
+          </li>
+          <li>Samsung S21 Ultra - <span id="s21-ultra-stock">4</span> in stock
+              <button onclick="updateStock('s21-ultra-stock', 1)">+</button>
+              <button onclick="updateStock('s21-ultra-stock', -1)">-</button>
+          </li>
+          <li>Samsung S20 Ultra - <span id="s20-ultra-stock">2</span> in stock
+              <button onclick="updateStock('s20-ultra-stock', 1)">+</button>
+              <button onclick="updateStock('s20-ultra-stock', -1)">-</button>
+          </li>
+          <li>Samsung Z Flip 4 - <span id="z-flip4-stock">6</span> in stock
+              <button onclick="updateStock('z-flip4-stock', 1)">+</button>
+              <button onclick="updateStock('z-flip4-stock', -1)">-</button>
+          </li>
+          <li>Samsung Note 9 - <span id="note9-stock">2</span> in stock
+              <button onclick="updateStock('note9-stock', 1)">+</button>
+              <button onclick="updateStock('note9-stock', -1)">-</button>
+          </li>
+          <li>Samsung Z Flip 3 - <span id="z-flip3-stock">4</span> in stock
+              <button onclick="updateStock('z-flip3-stock', 1)">+</button>
+              <button onclick="updateStock('z-flip3-stock', -1)">-</button>
+          </li>
+          <li>Samsung S21 Plus - <span id="s21-plus-stock">3</span> in stock
+              <button onclick="updateStock('s21-plus-stock', 1)">+</button>
+              <button onclick="updateStock('s21-plus-stock', -1)">-</button>
+          </li>
+          <li>Google Pixel 6 - <span id="pixel6-stock">5</span> in stock
+              <button onclick="updateStock('pixel6-stock', 1)">+</button>
+              <button onclick="updateStock('pixel6-stock', -1)">-</button>
+          </li>
+          <li>Apple iPhone 12 - <span id="iphone12-stock">4</span> in stock
+              <button onclick="updateStock('iphone12-stock', 1)">+</button>
+              <button onclick="updateStock('iphone12-stock', -1)">-</button>
+          </li>
+          <li>Apple iPhone 11 - <span id="iphone11-stock">3</span> in stock
+              <button onclick="updateStock('iphone11-stock', 1)">+</button>
+              <button onclick="updateStock('iphone11-stock', -1)">-</button>
+          </li>
+      </ul>
+  <button onclick="saveStock()">Save</button>
+  </footer>
+  
+  <script>
+      // Function to update stock
+      function updateStock(itemId, change) {
+          const passwordInput = document.getElementById('password').value;
+          const correctPassword = '2580'; // Set your password here
+          if (passwordInput === correctPassword) {
+              const stockElement = document.getElementById(itemId);
+              let currentStock = parseInt(stockElement.textContent);
+              currentStock += change;
+              if (currentStock >= 0) {
+                  stockElement.textContent = currentStock;
+              }
+          } else {
+              alert('Incorrect password!');
+          }
+      }
 
-        // Function to save stock to localStorage
-        function saveStock() {
-            const stockItems = document.querySelectorAll('ul li span');
-            stockItems.forEach(item => {
-                localStorage.setItem(item.id, item.textContent);
-            });
-            alert('Stock saved!');
-        }
+      // Function to save stock to localStorage
+      function saveStock() {
+          const stockItems = document.querySelectorAll('ul li span');
+          stockItems.forEach(item => {
+              localStorage.setItem(item.id, item.textContent);
+          });
+          alert('Stock saved!');
+      }
 
-        // Function to load stock from localStorage
-        function loadStock() {
-            const stockItems = document.querySelectorAll('ul li span');
-            stockItems.forEach(item => {
-                const savedStock = localStorage.getItem(item.id);
-                if (savedStock !== null) {
-                    item.textContent = savedStock;
-                }
-            });
-        }
+      // Function to load stock from localStorage
+      function loadStock() {
+          const stockItems = document.querySelectorAll('ul li span');
+          stockItems.forEach(item => {
+              const savedStock = localStorage.getItem(item.id);
+              if (savedStock !== null) {
+                  item.textContent = savedStock;
+              }
+          });
+      }
 
-        // Load stock on page load
-        window.onload = loadStock;
-    </script>
-    
+      // Load stock on page load
+      window.onload = loadStock;
+  </script>
+    <a href="https://wa.me/+12015197567" class="whatsapp-button" target="_blank">Message on WhatsApp</a>
 </body>
 </html>
